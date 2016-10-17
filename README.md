@@ -1,5 +1,6 @@
-# lumpyCustard: a SGE based LUMPY structural variant detection pipeline #
+# lumpyCustard #
 
+## LUMPY structural variant detection pipeline using SGE ##
 
 ## Overview ##
 This is a sets of scripts for running [LUMPY Express](https://github.com/arq5x/lumpy-sv) on an SGE based cluster (specifically I've tested them using [Son of Grid Engine](https://arc.liv.ac.uk/trac/SGE)).  [BWA MEM](http://bio-bwa.sourceforge.net/) is used to align FASTQ, followed by conversion to sorted BAM with [Picard](http://broadinstitute.github.io/picard/).  LUMPY express is then run, followed by structural variant annotation with [Ensembl VEP](http://www.ensembl.org/info/docs/tools/vep/script/vep_download.html) LUMPYs output VCF also has it's genotype fields split from `:` separated to tab-delimited `\t` which makes reading the output VCF file and sorting via the number of supporting reads columns much easier (see original VCF header for details).  [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) is also run as a Quality Control step on input FASTQ. 
