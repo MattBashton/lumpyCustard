@@ -20,7 +20,7 @@ The following binaries and resources are required:
 * [LUMPY](https://github.com/arq5x/lumpy-sv)
 * [Burrows-Wheeler Aligner](http://bio-bwa.sourceforge.net/)
 * [Picard tools](http://broadinstitute.github.io/picard/)
-* [GATK Resource Bundle 2.8](https://www.broadinstitute.org/gatk/download/)
+* [GATK Resource Bundle 2.8](https://www.broadinstitute.org/gatk/download/) or other source of genome reference 
 * [Son of Grid Engine](https://arc.liv.ac.uk/trac/SGE)
 * [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * [Ensembl Variant Effect Predictor](http://www.ensembl.org/info/docs/tools/vep/script/vep_download.html)
