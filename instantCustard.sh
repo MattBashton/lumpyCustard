@@ -42,7 +42,7 @@ qsub -t 1-$N -N $G_NAME.FastQC -wd $PWD/FastQC FastQC/FastQC.sh
 
 #### Alignment
 tput bold
-echo " * 1 BWA jobs submitted"
+echo " * 2 BWA jobs submitted"
 tput sgr0
 qsub -t 1-$N -N $G_NAME.BWA -wd $PWD/BWA_MEM BWA_MEM/BWA.sh
 
@@ -54,19 +54,19 @@ qsub -t 1-$N -N $G_NAME.SamToSortedBam -hold_jid_ad $G_NAME.BWA -wd $PWD/SamToSo
 
 #### lumpyexpress
 tput bold
-echo " * 2 lumpyexpress jobs submitted"
+echo " * 4 lumpyexpress jobs submitted"
 tput sgr0
 qsub -t 1-$N -N $G_NAME.lumpyexpress -hold_jid_ad $G_NAME.SamToSortedSam -wd $PWD/lumpyexpress lumpyexpress/lumpyexpress.sh
 
 #### Ensembl VEP
 tput bold
-echo " * 3 Ensembl VEP jobs submitted"
+echo " * 5 Ensembl VEP jobs submitted"
 tput sgr0
 qsub -t 1-$N -N $G_NAME.VEP -hold_jid $G_NAME.lumpyexpress -wd $PWD/VEP $PWD/VEP/VEP.sh
 
 #### Reprocess VCF to txt expanding genotype field
 tput bold
-echo " * 4 awk jobs submitted"
+echo " * 6 awk jobs submitted"
 tput sgr0
 qsub -t 1-$N -N $G_NAME.modifyVCF -hold_jid $G_NAME.lumpyexpress -wd $PWD/modifyVCF $PWD/modifyVCF/modifyVCF.sh
 

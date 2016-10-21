@@ -2,12 +2,12 @@
 #$ -cwd -V
 #$ -pe smp 2
 #$ -l h_rt=480:00:00
-#$ -l h_vmem=16G
+#$ -l h_vmem=6G
 #$ -R y
 #$ -q all.q,bigmem.q
 
 # Matthew Bashton 2012-2016
-# Runs lumpy express 
+# Runs lumpy express
 # Job time being used too to help with getting a slot, 48hrs set - alter if need be.
 # Can optionally remove .sam from BWA_MEM dir to clean up.
 
@@ -33,7 +33,7 @@ echo "Copying input $BASE_DIR/SamToSortedBam/$SAMP_ID.ba* to $TMPDIR"
 
 echo "Running lumpyexpress on input sam $TMPDIR/$SAMP_ID.bam"
 cd $TMPDIR
-/usr/bin/time --verbose $LUMPYEXPRESS -v -k -B $SAMP_ID.bam -o $SAMP_ID.vcf -T $TMPDIR/LUMPYtmp.$SAMP_ID 
+/usr/bin/time --verbose $LUMPYEXPRESS -v -k -B $SAMP_ID.bam -o $SAMP_ID.vcf -T $TMPDIR/LUMPYtmp.$SAMP_ID
 cd $DEST
 
 echo "Copying back output VCF $TMPDIR/$SAMP_ID.vcf to $DEST"
