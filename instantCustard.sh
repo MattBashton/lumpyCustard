@@ -62,13 +62,13 @@ qsub -t 1-$N -N $G_NAME.lumpyexpress -hold_jid_ad $G_NAME.SamToSortedSam -wd $PW
 tput bold
 echo " * 5 Ensembl VEP jobs submitted"
 tput sgr0
-qsub -t 1-$N -N $G_NAME.VEP -hold_jid $G_NAME.lumpyexpress -wd $PWD/VEP $PWD/VEP/VEP.sh
+qsub -t 1-$N -N $G_NAME.VEP -hold_jid_ad $G_NAME.lumpyexpress -wd $PWD/VEP $PWD/VEP/VEP.sh
 
 #### Reprocess VCF to txt expanding genotype field
 tput bold
 echo " * 6 awk jobs submitted"
 tput sgr0
-qsub -t 1-$N -N $G_NAME.modifyVCF -hold_jid $G_NAME.lumpyexpress -wd $PWD/modifyVCF $PWD/modifyVCF/modifyVCF.sh
+qsub -t 1-$N -N $G_NAME.modifyVCF -hold_jid_ad $G_NAME.lumpyexpress -wd $PWD/modifyVCF $PWD/modifyVCF/modifyVCF.sh
 
 echo ""
 tput setaf 2
