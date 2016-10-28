@@ -56,7 +56,7 @@ qsub -t 1-$N -N $G_NAME.SamToSortedBam -hold_jid_ad $G_NAME.BWA -wd $PWD/SamToSo
 tput bold
 echo " * 4 lumpyexpress jobs submitted"
 tput sgr0
-qsub -t 1-$N -N $G_NAME.lumpyexpress -hold_jid_ad $G_NAME.SamToSortedSam -wd $PWD/lumpyexpress lumpyexpress/lumpyexpress.sh
+qsub -t 1-$N -N $G_NAME.lumpyexpress -hold_jid_ad $G_NAME.SamToSortedBam -wd $PWD/lumpyexpress lumpyexpress/lumpyexpress.sh
 
 #### Ensembl VEP
 tput bold
