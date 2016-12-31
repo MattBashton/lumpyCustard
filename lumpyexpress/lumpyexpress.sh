@@ -31,7 +31,7 @@ echo "Copying input $BASE_DIR/SamToSortedBam/$SAMP_ID.ba* to $TMPDIR"
 /usr/bin/time --verbose cp -v $BASE_DIR/SamToSortedBam/$SAMP_ID.bam $TMPDIR
 /usr/bin/time --verbose cp -v $BASE_DIR/SamToSortedBam/$SAMP_ID.bai $TMPDIR
 
-echo "Running lumpyexpress on input sam $TMPDIR/$SAMP_ID.bam"
+echo "Running lumpyexpress on input bam $TMPDIR/$SAMP_ID.bam"
 cd $TMPDIR
 /usr/bin/time --verbose $LUMPYEXPRESS -v -k -B $SAMP_ID.bam -o $SAMP_ID.vcf -T $TMPDIR/LUMPYtmp.$SAMP_ID
 cd $DEST
